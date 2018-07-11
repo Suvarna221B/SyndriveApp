@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("LOGIN");
 
-        etemail = (EditText)findViewById(R.id.etemail);
-        etpassword = (EditText)findViewById(R.id.etpassword);
-        btn = (Button)findViewById(R.id.btn);
-        tvRegister =(TextView)findViewById(R.id.tvRegister);
-        tvForgotPassword = (TextView)findViewById(R.id.tvForgotPassword);
+        etemail = findViewById(R.id.etemail);
+        etpassword = findViewById(R.id.etpassword);
+        btn = findViewById(R.id.btn);
+        tvRegister =findViewById(R.id.tvRegister);
+        tvForgotPassword = findViewById(R.id.tvForgotPassword);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
