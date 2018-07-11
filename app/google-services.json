@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "885138541108",
+    "firebase_url": "https://syndrive-209515.firebaseio.com",
+    "project_id": "syndrive-209515",
+    "storage_bucket": "syndrive-209515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885138541108:android:4afb2bf623eddbd3",
+        "android_client_info": {
+          "package_name": "universe.sk.syndriveapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885138541108-nmk3r77s8d0ds9i6nv83ocpukgl0eeo8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1v5mhO8T3LTjW9GF2FZ3KkaS2Yl4qqrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
