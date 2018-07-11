@@ -23,6 +23,14 @@
     <string name="btn_send">Send SOS</string>
     <string name="btn_stop">Dismiss</string>
 
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_dob">DOB</string>
+    <string name="hint_blood_group">Blood Group</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_new_pwd">Enter New Password</string>
+    <string name="hint_confirm_new_pwd">Confirm New Password</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
