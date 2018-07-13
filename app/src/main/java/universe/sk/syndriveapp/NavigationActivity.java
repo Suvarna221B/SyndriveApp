@@ -52,6 +52,14 @@ public class NavigationActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //default fragment
+        ContactUsFragment contactUsFragment = new ContactUsFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.flMain, contactUsFragment).commit();
+
+        navigationView.setCheckedItem(R.id.nav_conatctus);
     }
 
     @Override
