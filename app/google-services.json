@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "885138541108-5irhn08mjagd29hnnn3fn310nni4u7bb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "universe.sk.syndriveapp",
+            "certificate_hash": "db2cb3b4c0c5fa289ebe7c2583a7b9d4296b7b23"
+          }
+        },
+        {
+          "client_id": "885138541108-s0s6o40eto2kphm8csn83dlj9ovte05c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "universe.sk.syndriveapp",
+            "certificate_hash": "b0132abe6d8588968fa555e1fce0af8a7a32842b"
+          }
+        },
+        {
           "client_id": "885138541108-nmk3r77s8d0ds9i6nv83ocpukgl0eeo8.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885138541108-nmk3r77s8d0ds9i6nv83ocpukgl0eeo8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
