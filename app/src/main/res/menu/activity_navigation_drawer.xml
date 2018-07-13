@@ -26,4 +26,13 @@
             android:title="Logout" />
     </group>
 
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_conatctus"
+                android:icon="@android:drawable/ic_dialog_map"
+                android:title="Contact Us"/>
+        </menu>
+    </item>
+
 </menu>
