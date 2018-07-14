@@ -6,7 +6,7 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="btn_login">Login</string>
-    <string name="date_of_birth">Date of birth (dd/mm/yy) </string>
+    <string name="date_of_birth">Date of birth (dd/mm/yyyy) </string>
     <string name="new_user">New user? Sign up</string>
     <string name="user_name">Name</string>
     <string name="next">Next</string>
@@ -26,7 +26,7 @@
 
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
-    <string name="hint_dob">DOB</string>
+    <string name="hint_dob">DOB (dd/mm/yyyy)</string>
     <string name="hint_blood_group">Blood Group</string>
     <string name="hint_password">Password</string>
     <string name="hint_new_pwd">Enter New Password</string>
