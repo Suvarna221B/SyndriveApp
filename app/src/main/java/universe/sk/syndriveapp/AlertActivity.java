@@ -1,16 +1,16 @@
 package universe.sk.syndriveapp;
 
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import android.os.CountDownTimer;
+import android.support.design.widget.FloatingActionButton;
 
 public class AlertActivity extends AppCompatActivity {
 
     private TextView tvTime;
-    private Button btnSend, btnDismiss;
+    private FloatingActionButton fabSend, fabDismiss;
 
     private boolean isDismissed = false;
     private boolean isSent = false;
@@ -21,11 +21,11 @@ public class AlertActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alert);
 
         tvTime = findViewById(R.id.tvTime);
-        btnSend = findViewById(R.id.btnSend);
-        btnDismiss = findViewById(R.id.btnDismiss);
+        fabSend = findViewById(R.id.fabSend);
+        fabDismiss = findViewById(R.id.fabDismiss);
 
-        btnDismiss.setEnabled(true);
-        btnSend.setEnabled(true);
+        fabDismiss.setEnabled(true);
+        fabSend.setEnabled(true);
 
         long millisInFuture = 25000; //15s
         long countDownInterval = 1000; //1s
@@ -41,28 +41,28 @@ public class AlertActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 tvTime.setText("SOS Sent");
-                btnDismiss.setEnabled(false);
-                btnSend.setEnabled(false);
+                fabDismiss.setEnabled(false);
+                fabSend.setEnabled(false);
             }
         }.start();
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
+        fabSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isSent = true;
                 tvTime.setText("SOS sent");
-                btnSend.setEnabled(false);
-                btnDismiss.setEnabled(false);
+                fabSend.setEnabled(false);
+                fabDismiss.setEnabled(false);
             }
         }); //end of Send button
 
-        btnDismiss.setOnClickListener(new View.OnClickListener() {
+        fabDismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isDismissed = true;
                 tvTime.setText("Alert Dismissed");
-                btnSend.setEnabled(false);
-                btnDismiss.setEnabled(false);
+                fabSend.setEnabled(false);
+                fabDismiss.setEnabled(false);
             }
         }); //end of Dismiss button
 
