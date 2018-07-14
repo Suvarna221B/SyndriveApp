@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText etName,etEmailsign,etPassign;
+    private EditText etName,etEmailsign,etPassign,etConfirmPassign;
     private Button btn_register;
     private TextView tvExist;
     private FirebaseAuth firebaseAuth;
@@ -77,6 +77,7 @@ public class RegistrationActivity extends AppCompatActivity {
         etPassign = findViewById(R.id.etPassign);
         btn_register = findViewById(R.id.btn_register);
         tvExist = findViewById(R.id.tvExist);
+        etConfirmPassign = findViewById(R.id.etConfirmPassign);
 
     }
 
@@ -87,13 +88,18 @@ public class RegistrationActivity extends AppCompatActivity {
         String name = etName.getText().toString();
         String userpassword = etPassign.getText().toString();
         String email = etEmailsign.getText().toString();
+        String confirmpass = etConfirmPassign.getText().toString();
 
         if(name.isEmpty() || userpassword.isEmpty() || email.isEmpty())
         {
             Toast.makeText(this, "Please enter all the details!", Toast.LENGTH_SHORT).show();
         }
         else
-            result=true;
+        {   if(userpassword.equals(confirmpass))
+                result = true;
+            else
+            Toast.makeText(this, "Confirm password doesn't match with your password!", Toast.LENGTH_SHORT).show();
+        }
         return result;
     }
 
