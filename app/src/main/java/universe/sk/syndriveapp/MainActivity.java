@@ -71,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
             }
         });
+
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,PasswordActivity.class));
+            }
+        });
     }
 
     private void valid(String email,String password)
@@ -79,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
+                if(task.isSuccessful())
+                {
                     Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+
                 }
                 else
                     Toast.makeText(MainActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
@@ -89,5 +98,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 }
