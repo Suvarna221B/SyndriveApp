@@ -26,6 +26,7 @@
     <string name="tv_sent">SOS Sent</string>
     <string name="tv_dismissed">Alert Dismissed</string>
 
+    <string name="tv_profile_details">Profile Details</string>
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_dob">DOB (dd/mm/yyyy)</string>
@@ -37,5 +38,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="action_save">Save</string>
+    <string name="action_edit">Edit</string>
 
 </resources>

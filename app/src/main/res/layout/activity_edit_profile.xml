@@ -55,7 +55,7 @@
         android:layout_alignBottom="@+id/view"
         android:layout_alignParentStart="true"
         android:gravity="center_horizontal"
-        android:text="Profile Details"
+        android:text="@string/tv_profile_details"
         android:fontFamily="sans-serif-smallcaps"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
