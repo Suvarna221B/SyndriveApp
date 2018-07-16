@@ -23,6 +23,8 @@
 
     <string name="btn_send">Send SOS</string>
     <string name="btn_dismiss">Dismiss</string>
+    <string name="tv_sent">SOS Sent</string>
+    <string name="tv_dismissed">Alert Dismissed</string>
 
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
