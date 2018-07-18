@@ -108,6 +108,8 @@ public class NavigationActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.flMain,new ProfileFragment());
             ft.commit();
+            finish();
+            startActivity(new Intent(this,SettingsActivity.class));
 
 
         } else if (id == R.id.nav_about) {
