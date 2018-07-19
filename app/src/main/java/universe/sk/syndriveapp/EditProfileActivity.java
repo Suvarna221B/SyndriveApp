@@ -30,6 +30,7 @@ public class EditProfileActivity extends AppCompatActivity {
         etConfirmNewPassword = findViewById(R.id.etConfirmNewPassword);
 
         etEmail.setEnabled(false);
+        etEmail.setText("username@email.com");
 
     }
 }
