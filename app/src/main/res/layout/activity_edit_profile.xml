@@ -21,13 +21,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView_profile_pic"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/profile_pic_default"
             app:civ_border_color="#FFFFFF"
             app:civ_border_width="2dp" />
         <android.support.design.widget.FloatingActionButton
@@ -37,7 +38,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="59dp"
-            android:backgroundTint="@color/fab_background"
+            app:backgroundTint="@color/fab_background"
             app:srcCompat="@drawable/edit" />
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabSave"
@@ -46,8 +47,18 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:clickable="true"
-            android:backgroundTint="@color/fab_background"
+            app:backgroundTint="@color/fab_background"
             app:srcCompat="@drawable/save" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabProfilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="100dp"
+            android:clickable="true"
+            app:backgroundTint="@color/fab_background"
+            app:srcCompat="@drawable/camera" />
     </RelativeLayout>
 
     <TextView
