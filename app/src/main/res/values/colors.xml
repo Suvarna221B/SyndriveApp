@@ -6,4 +6,5 @@
     <color name="green">#005600</color>
     <color name="red">#D10202</color>
     <color name="black">#000000</color>
+    <color name="fab_background">#B53fF9</color>
 </resources>
