@@ -92,10 +92,6 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-           /* FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new ProfileFragment());
-            ft.commit();*/
-           finish();
            startActivity(new Intent(this,EditProfileActivity.class));
 
         } else if (id == R.id.nav_contacts) {

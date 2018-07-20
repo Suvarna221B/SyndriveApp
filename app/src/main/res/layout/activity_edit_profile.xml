@@ -51,7 +51,7 @@
             app:srcCompat="@drawable/save" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabProfilePic"
+            android:id="@+id/fabCamera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="210dp"
@@ -59,6 +59,15 @@
             android:clickable="true"
             app:backgroundTint="@color/fab_background"
             app:srcCompat="@drawable/camera" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="100dp"
+            app:backgroundTint="@color/fab_background"
+            app:srcCompat="@drawable/gallery" />
     </RelativeLayout>
 
     <TextView
