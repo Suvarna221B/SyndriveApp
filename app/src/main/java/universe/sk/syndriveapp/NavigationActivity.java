@@ -99,26 +99,16 @@ public class NavigationActivity extends AppCompatActivity
             ft.replace(R.id.flMain,new ProfileFragment());
             ft.commit();
 
-
         } else if (id == R.id.nav_settings) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new ProfileFragment());
-            ft.commit();
-            finish();
             startActivity(new Intent(this,SettingsActivity.class));
 
-
         } else if (id == R.id.nav_about) {
-
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new ProfileFragment());
-            ft.commit();
+            startActivity(new Intent (this,AboutActivity.class));
 
         } else if (id == R.id.nav_logout) {
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this,MainActivity.class));
-
 
         }else if(id == R.id.nav_conatctus){
 
