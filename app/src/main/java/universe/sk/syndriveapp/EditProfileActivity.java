@@ -43,8 +43,11 @@ public class EditProfileActivity extends AppCompatActivity {
         fabSave = findViewById(R.id.fabSave);
         fabProfilePic = findViewById(R.id.fabProfilePic);
 
+        etName.setEnabled(false);
+        etDOB.setEnabled(false);
+        etBloodGroup.setEnabled(false);
         etEmail.setEnabled(false);
-        etEmail.setText("username@email.com");
+        fabSave.setEnabled(false);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase= FirebaseDatabase.getInstance();
@@ -62,25 +65,34 @@ public class EditProfileActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(EditProfileActivity.this,databaseError.getCode(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfileActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fabEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etName.setEnabled(true);
+                etDOB.setEnabled(true);
+                etBloodGroup.setEnabled(true);
+                fabSave.setEnabled(true);
             }
         });
         fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fabEdit.setEnabled(false);
                 String name = etName.getText().toString();
                 String email = etEmail.getText().toString();
                 String bloodgroup = etBloodGroup.getText().toString();
                 String date = etDOB.getText().toString();
 
-                Userinfo userinfo = new Userinfo(name,email,date,bloodgroup);
+                Userinfo userinfo = new Userinfo(name, email, date, bloodgroup);
                 databaseReference.setValue(userinfo);
-            }
-        });
-        fabProfilePic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
+                etName.setEnabled(false);
+                etDOB.setEnabled(false);
+                etBloodGroup.setEnabled(false);
             }
         });
 
