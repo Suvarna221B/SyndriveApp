@@ -173,15 +173,6 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimary">
 
-                <EditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_password"
-                    android:imeOptions="actionNext"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/colorPrimary" />
-
             </android.support.design.widget.TextInputLayout>
 
 
@@ -190,15 +181,6 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimary">
 
-                <EditText
-                    android:id="@+id/etNewPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_new_pwd"
-                    android:imeOptions="actionNext"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/colorPrimary" />
-
             </android.support.design.widget.TextInputLayout>
 
 
@@ -206,15 +188,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimary">
-
-                <EditText
-                    android:id="@+id/etConfirmNewPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_confirm_new_pwd"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/colorPrimary" />
 
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
