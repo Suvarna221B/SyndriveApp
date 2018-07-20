@@ -16,13 +16,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText etName,etEmailsign,etPassign,etConfirmPassign;
+    private EditText etName,etEmailsign,etPassign,etConfirmPassign,etBloodgroup,etDate;
     private Button btn_register;
     private TextView tvExist;
     private FirebaseAuth firebaseAuth;
+    String name,email,password,bloodgrp,date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if(validate())
                 {
-                    String user_name = etName.getText().toString().trim();
                     String user_email = etEmailsign.getText().toString().trim();
                     String user_password = etPassign.getText().toString().trim();
 
@@ -49,8 +52,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     firebaseAuth.createUserWithEmailAndPassword(user_email,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())
-                                Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                            if(task.isSuccessful()){
+                                adduser();
+                                Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();}
                             else
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
                         }
@@ -79,29 +83,40 @@ public class RegistrationActivity extends AppCompatActivity {
         btn_register = findViewById(R.id.btn_register);
         tvExist = findViewById(R.id.tvExist);
         etConfirmPassign = findViewById(R.id.etConfirmPassign);
-
+        etDate =(EditText)findViewById(R.id.etDate);
+        etBloodgroup =(EditText) findViewById(R.id.etBloodgroup);
     }
 
     private Boolean validate()
     {
         Boolean result = false;
-
-        String name = etName.getText().toString();
-        String userpassword = etPassign.getText().toString();
-        String email = etEmailsign.getText().toString();
+        bloodgrp = etBloodgroup.getText().toString().trim();
+        date = etDate.getText().toString().trim();
+        name = etName.getText().toString();
+        password = etPassign.getText().toString();
+        email = etEmailsign.getText().toString();
         String confirmpass = etConfirmPassign.getText().toString();
 
-        if(name.isEmpty() || userpassword.isEmpty() || email.isEmpty())
+        if(name.isEmpty() || password.isEmpty() || email.isEmpty())
         {
             Toast.makeText(this, "Please enter all the details!", Toast.LENGTH_SHORT).show();
         }
         else
-        {   if(userpassword.equals(confirmpass))
+        {   if(password.equals(confirmpass))
                 result = true;
             else
             Toast.makeText(this, "Confirm password doesn't match with your password!", Toast.LENGTH_SHORT).show();
         }
         return result;
+    }
+    private void adduser(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseusers= firebaseDatabase.getReference(firebaseAuth.getUid());
+        Userinfo user;
+        user = new Userinfo(name,email,date,bloodgrp);
+        databaseusers.setValue(user);
+
+
     }
 }
 
