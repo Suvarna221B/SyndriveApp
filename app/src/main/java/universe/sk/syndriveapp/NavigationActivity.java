@@ -92,10 +92,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-           /* FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new ProfileFragment());
-            ft.commit();*/
-           finish();
+
            startActivity(new Intent(this,EditProfileActivity.class));
 
         } else if (id == R.id.nav_contacts) {
@@ -105,18 +102,13 @@ public class NavigationActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_settings) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new ProfileFragment());
-            ft.commit();
-            finish();
+
             startActivity(new Intent(this,SettingsActivity.class));
 
 
         } else if (id == R.id.nav_about) {
 
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new ProfileFragment());
-            ft.commit();
+            startActivity(new Intent (this,AboutActivity.class));
 
         } else if (id == R.id.nav_logout) {
             firebaseAuth.signOut();
