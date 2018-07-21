@@ -12,8 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,8 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -129,7 +125,9 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                }
             }
         });
 
@@ -162,15 +160,16 @@ public class EditProfileActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mProgressDialog.dismiss();
                     downloadUri = filePath.getDownloadUrl();
-                    Glide.with(EditProfileActivity.this)
+                    /* Glide.with(EditProfileActivity.this)
                             .load(filePath)
-                            .into(imageView_profile_pic);
+                            .into(imageView_profile_pic); */
                     /* Picasso.get()
                             .load(downloadUri)
                             .resize(150, 150)
                             .centerCrop()
                             .into(imageView_profile_pic); */
                     Toast.makeText(EditProfileActivity.this, "Image upload successful!", Toast.LENGTH_SHORT).show();
+
                 }
             });
         }   //end of ImagePick/Capture test

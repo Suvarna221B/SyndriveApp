@@ -121,12 +121,12 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setupActionBar();
+        setupActionBar();
         getFragmentManager().beginTransaction().replace(android.R.id.content,
                 new NotificationPreferenceFragment()).commit();
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }
@@ -134,13 +134,14 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     /**
      * Set up the {@link android.app.ActionBar}, if the API is available.
      */
-   /* private void setupActionBar() {
+   private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             // Show the Up button in the action bar.
+            actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-    }*/
+    }
 
     /**
      * {@inheritDoc}
