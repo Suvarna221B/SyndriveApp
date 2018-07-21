@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,7 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -37,6 +35,7 @@ public class EditProfileActivity extends AppCompatActivity {
     CircleImageView imageView_profile_pic;
     private StorageReference mStorage;
     private ProgressDialog mProgressDialog;
+    public Task<Uri> downloadUri;
 
     public static final int REQUEST_IMAGE_PICK = 1;
     public static final int REQUEST_IMAGE_CAPTURE = 0;
@@ -85,6 +84,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 etBloodGroup.setText(userinfo.getBloodgroup());
                 etDOB.setText(userinfo.getUdate());
                 etEmail.setText(userinfo.getUemail());
+                imageView_profile_pic.setImageURI(userinfo.getImageUri());
             }
 
             @Override
@@ -159,7 +159,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mProgressDialog.dismiss();
-                    // Task<Uri> downloadUri = filePath.getDownloadUrl();
+                    downloadUri = filePath.getDownloadUrl();
                     /* Glide.with(EditProfileActivity.this)
                             .load(filePath)
                             .into(imageView_profile_pic); */
