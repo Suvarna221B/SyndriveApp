@@ -25,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -69,7 +71,7 @@ public class EditProfileActivity extends AppCompatActivity {
         fabSave.setEnabled(false);
 
         mStorage = FirebaseStorage.getInstance().getReference();
-        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog = new ProgressDialog(this);         //upload progress dialog
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -84,7 +86,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 etBloodGroup.setText(userinfo.getBloodgroup());
                 etDOB.setText(userinfo.getUdate());
                 etEmail.setText(userinfo.getUemail());
-                imageView_profile_pic.setImageURI(userinfo.getImageUri());
+                // imageView_profile_pic.setImageURI(userinfo.getImageUri());
             }
 
             @Override
@@ -160,13 +162,12 @@ public class EditProfileActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mProgressDialog.dismiss();
                     downloadUri = filePath.getDownloadUrl();
-                    /* Glide.with(EditProfileActivity.this)
+                    Glide.with(EditProfileActivity.this)
                             .load(filePath)
-                            .into(imageView_profile_pic); */
-                    /*Picasso.get()
-                            .load(downloadUri.getResult())
+                            .into(imageView_profile_pic);
+                    /* Picasso.get()
+                            .load(downloadUri)
                             .resize(150, 150)
-                            .fit()
                             .centerCrop()
                             .into(imageView_profile_pic); */
                     Toast.makeText(EditProfileActivity.this, "Image upload successful!", Toast.LENGTH_SHORT).show();

@@ -9,17 +9,17 @@ public class Userinfo {
     public String uemail;
     public String udate;
     public String bloodgroup;
-    public Task<Uri> imageUri;
+    // public Uri imageUri;
     public Userinfo(){
 
     }
 
-    public Userinfo(String username, String uemail, String udate, String bloodgroup, Task<Uri> imageUri) {
+    public Userinfo(String username, String uemail, String udate, String bloodgroup) {
         this.username = username;
         this.uemail = uemail;
         this.udate = udate;
         this.bloodgroup = bloodgroup;
-        this.imageUri = imageUri;
+        // this.imageUri = imageUri;
     }
 
     public String getUsername() {
@@ -50,11 +50,11 @@ public class Userinfo {
         this.bloodgroup = bloodgroup;
     }
 
-    public Task<Uri> getImageUri() {
+    /* public Uri getImageUri() {
         return imageUri;
     }
-    public void setImageUri(Task<Uri> imageUri) {
+    public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
-    }
+    } */
 }
 
