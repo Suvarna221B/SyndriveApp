@@ -66,6 +66,7 @@
         <activity android:name=".PasswordActivity" />
         <activity android:name=".AlertActivity" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".AddContacts"/>
         <activity android:name=".AboutActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity"/>

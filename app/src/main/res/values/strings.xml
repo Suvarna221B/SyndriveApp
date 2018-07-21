@@ -45,6 +45,14 @@
     <string name="action_save">Save</string>
     <string name="action_edit">Edit</string>
 
+    <string name="hint_emname1">Emergency Contact Name 1</string>
+    <string name="hint_num1">Number</string>
+    <string name="hint_emname2">Emergency Contact Name 2</string>
+    <string name="hint_num2">Number</string>
+    <string name="hint_emname3">Emergency Contact Name 3</string>
+    <string name="hint_num3">Number</string>
+    <string name="hint_registerbtn">Register</string>
+
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 

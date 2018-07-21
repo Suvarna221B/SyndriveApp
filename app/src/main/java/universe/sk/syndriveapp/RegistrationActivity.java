@@ -54,14 +54,17 @@ public class RegistrationActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 adduser();
-                                Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();}
+                                finish();
+                                startActivity(new Intent( RegistrationActivity.this,AddContacts.class));
+                                //Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                            }
                             else
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
                         }
                     });
 
 
-                    startActivity(new Intent(RegistrationActivity.this,NavigationActivity.class));
+                    //startActivity(new Intent(RegistrationActivity.this,NavigationActivity.class));
                 }
             }
         });
