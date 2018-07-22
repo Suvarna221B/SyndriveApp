@@ -139,10 +139,10 @@ public class EditProfileActivity extends AppCompatActivity {
                             REQUEST_CAMERA);
                 }
 
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                /* Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-                }
+                } */
             }
         });
 
@@ -193,7 +193,13 @@ public class EditProfileActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CAMERA && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+        if (requestCode == REQUEST_CAMERA && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+            }
+        }
+        else if (requestCode == REQUEST_CAMERA && grantResults[0] == PackageManager.PERMISSION_DENIED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(EditProfileActivity.this,
                     Manifest.permission.CAMERA)) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
