@@ -1,12 +1,18 @@
 package universe.sk.syndriveapp;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +43,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public static final int REQUEST_IMAGE_PICK = 1;
     public static final int REQUEST_IMAGE_CAPTURE = 0;
+
+    private static final int REQUEST_CAMERA = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +132,13 @@ public class EditProfileActivity extends AppCompatActivity {
         fabCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(EditProfileActivity.this, Manifest.permission.CAMERA) !=
+                        PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(EditProfileActivity.this,
+                            new String[]{Manifest.permission.CAMERA},
+                            REQUEST_CAMERA);
+                }
+
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
@@ -146,7 +161,7 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);  //data is the imageReturnedIntent
 
-        if ((requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK)||(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)) {
+        if ((requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK) || (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)) {
             mProgressDialog.setMessage("Uploading ...");
             mProgressDialog.show();
 
@@ -175,4 +190,35 @@ public class EditProfileActivity extends AppCompatActivity {
         }   //end of ImagePick/Capture test
 
     } //end of onActivityResult
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CAMERA && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(EditProfileActivity.this,
+                    Manifest.permission.CAMERA)) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setMessage("This permission is required in order to capture photos. Please permit it")
+                        .setTitle("Important permission required!");
+
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ActivityCompat.requestPermissions(EditProfileActivity.this,
+                                new String[]{Manifest.permission.CAMERA},
+                                REQUEST_CAMERA);
+                    }
+                });
+
+                dialog.setNegativeButton("No, thanks", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(EditProfileActivity.this, "Cannot capture photos!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.show();
+            }
+        }
+    } //end of onRequestPermissionsResult
+
 } //end of EditProfileActivity

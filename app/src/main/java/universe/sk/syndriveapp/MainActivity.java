@@ -30,13 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvRegister,tvForgotPassword;
     private FirebaseAuth firebaseAuth;
 
-    private static final int REQUEST_EXTERNAL_STORAGE = 1000;
-    private static final int REQUEST_LOCATION = 1001;
-    private static final int REQUEST_CAMERA = 1002;
-    private static final int REQUEST_CONTACTS = 1003;
-    private static final int REQUEST_PHONE = 1004;
-    private static final int REQUEST_SENSORS = 1005;
     private static final int REQUEST_PERMISSIONS = 1500;
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,37 +72,6 @@ public class MainActivity extends AppCompatActivity {
                         Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA},
                         REQUEST_PERMISSIONS);
         }
-        /* if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
-                    REQUEST_LOCATION);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[] {Manifest.permission.CAMERA},
-                    REQUEST_CAMERA);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CONTACTS) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[] {Manifest.permission.READ_CONTACTS},
-                    REQUEST_CONTACTS);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_PHONE_STATE) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[] {Manifest.permission.READ_PHONE_STATE},
-                    REQUEST_PHONE);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BODY_SENSORS) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[] {Manifest.permission.BODY_SENSORS},
-                    REQUEST_SENSORS);
-        } */
-
 
 
         firebaseAuth = FirebaseAuth.getInstance();
