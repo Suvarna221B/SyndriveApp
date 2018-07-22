@@ -204,7 +204,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     Manifest.permission.CAMERA)) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 dialog.setMessage("This permission is required in order to capture photos. Please permit it")
-                        .setTitle("Important permission required!");
+                        .setTitle("Permission required!");
 
                 dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
