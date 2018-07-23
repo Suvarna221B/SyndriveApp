@@ -55,7 +55,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 adduser();
                                 finish();
-                                startActivity(new Intent( RegistrationActivity.this,AddContacts.class));
+                                startActivity(new Intent(RegistrationActivity.this, AddContacts.class));
                                 //Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                             }
                             else
@@ -72,7 +72,7 @@ public class RegistrationActivity extends AppCompatActivity {
         tvExist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegistrationActivity.this,MainActivity.class));
+                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             }
         });
     }
@@ -118,8 +118,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Userinfo user;
         user = new Userinfo(name,email,date,bloodgrp);
         databaseusers.setValue(user);
-
-
+        
     }
 }
 

@@ -35,6 +35,7 @@
     <string name="hint_new_pwd">Enter New Password</string>
     <string name="hint_confirm_new_pwd">Confirm New Password</string>
     <string name="tv_change_password">Change Password</string>
+
     <string name="tv_about">Detects accident and reduces the rescue time!</string>
     <string name="tv_about2">Syndrive detects and measures the impact during accidents and if it goes beyond the threshold set in it, then we would contact the nearest hospital and also your near and dear ones.</string>
 
@@ -45,11 +46,11 @@
     <string name="action_save">Save</string>
     <string name="action_edit">Edit</string>
 
-    <string name="hint_emname1">Emergency Contact Name 1</string>
+    <string name="hint_emname1">1. Name</string>
     <string name="hint_num1">Number</string>
-    <string name="hint_emname2">Emergency Contact Name 2</string>
+    <string name="hint_emname2">2. Name</string>
     <string name="hint_num2">Number</string>
-    <string name="hint_emname3">Emergency Contact Name 3</string>
+    <string name="hint_emname3">3. Name</string>
     <string name="hint_num3">Number</string>
     <string name="hint_registerbtn">Register</string>
 
