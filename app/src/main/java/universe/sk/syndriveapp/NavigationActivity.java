@@ -92,7 +92,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-           startActivity(new Intent(this,EditProfileActivity.class));
+           startActivity(new Intent(this, EditProfileActivity.class));
 
         } else if (id == R.id.nav_contacts) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -100,10 +100,10 @@ public class NavigationActivity extends AppCompatActivity
             ft.commit();
 
         } else if (id == R.id.nav_settings) {
-            startActivity(new Intent(this,SettingsActivity.class));
+            startActivity(new Intent(this, SettingsActivity.class));
 
         } else if (id == R.id.nav_about) {
-            startActivity(new Intent (this,AboutActivity.class));
+            startActivity(new Intent (this, AboutActivity.class));
 
         } else if (id == R.id.nav_logout) {
             firebaseAuth.signOut();

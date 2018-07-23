@@ -28,7 +28,7 @@
             android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/profile_pic_default"
+            android:src="@drawable/profile_pic_default"
             app:civ_border_color="#FFFFFF"
             app:civ_border_width="2dp" />
         <android.support.design.widget.FloatingActionButton
