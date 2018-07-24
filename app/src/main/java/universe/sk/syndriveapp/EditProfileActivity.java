@@ -160,8 +160,8 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);  //data is the imageReturnedIntent
 
         if ((requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data.getData() != null)) {
-            //mProgressDialog.setMessage("Uploading ...");
-            //mProgressDialog.show();
+            mProgressDialog.setMessage("Uploading ...");
+            mProgressDialog.show();
 
             imagePath = data.getData();   //here uri is the selected image
             try {
@@ -180,16 +180,17 @@ public class EditProfileActivity extends AppCompatActivity {
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    mProgressDialog.dismiss();
                     Toast.makeText(EditProfileActivity.this, "Upload failed! Please check your internet connection",
                             Toast.LENGTH_SHORT).show();
                 }
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    mProgressDialog.dismiss();
                     Toast.makeText(EditProfileActivity.this, "Successfully uploaded!", Toast.LENGTH_SHORT).show();
                 }
             });
-            //mProgressDialog.dismiss();
 
         }   //end of ImagePick/Capture test
 
