@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
+
     TextView tvAbout,tvAbout2;
 
     @Override
@@ -20,5 +21,6 @@ public class AboutActivity extends AppCompatActivity {
 
         tvAbout = findViewById(R.id.tvAbout);
         tvAbout2 = findViewById(R.id.tvAbout2);
+
     }
 }

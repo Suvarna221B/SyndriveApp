@@ -92,6 +92,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
+
            startActivity(new Intent(this, EditProfileActivity.class));
 
         } else if (id == R.id.nav_contacts) {
@@ -100,6 +101,7 @@ public class NavigationActivity extends AppCompatActivity
             ft.commit();
 
         } else if (id == R.id.nav_settings) {
+
             startActivity(new Intent(this, SettingsActivity.class));
 
         } else if (id == R.id.nav_about) {
@@ -114,8 +116,7 @@ public class NavigationActivity extends AppCompatActivity
 
             ContactUsFragment contactUsFragment = new ContactUsFragment();
             FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.flMain, contactUsFragment).commit();
-        }
+            manager.beginTransaction().replace(R.id.flMain, contactUsFragment).commit();       }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
