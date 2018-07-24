@@ -25,9 +25,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
 import java.io.IOException;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -38,7 +36,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private FloatingActionButton fabEdit, fabSave, fabGallery;
     CircleImageView imageView_profile_pic;
-    // private StorageReference mStorage;
     private ProgressDialog mProgressDialog;
     Uri imagePath;
 
