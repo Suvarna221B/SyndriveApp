@@ -64,12 +64,15 @@ public class MainActivity extends AppCompatActivity {
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 !=PackageManager.PERMISSION_GRANTED)||
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
-                        !=PackageManager.PERMISSION_GRANTED)) {
+                        !=PackageManager.PERMISSION_GRANTED)||
+                (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        !=PackageManager.PERMISSION_GRANTED)
+                ) {
                 ActivityCompat.requestPermissions(MainActivity.this,
                         new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                 Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.BODY_SENSORS,
                                 Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CONTACTS,
-                        Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA},
+                        Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA},
                         REQUEST_PERMISSIONS);
         }
 
