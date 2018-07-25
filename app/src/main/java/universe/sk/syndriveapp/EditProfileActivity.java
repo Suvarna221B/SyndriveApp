@@ -66,7 +66,8 @@ public class EditProfileActivity extends AppCompatActivity {
         etDOB.setEnabled(false);
         etBloodGroup.setEnabled(false);
         etEmail.setEnabled(false);
-        fabSave.setEnabled(false);
+        // fabSave.setEnabled(false);
+        fabSave.setVisibility(View.INVISIBLE);
 
         // mStorage = FirebaseStorage.getInstance().getReference();
         mProgressDialog = new ProgressDialog(this);         //upload progress dialog
@@ -102,16 +103,20 @@ public class EditProfileActivity extends AppCompatActivity {
         fabEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fabEdit.setVisibility(View.INVISIBLE);
+                fabSave.setVisibility(View.VISIBLE);
                 etName.setEnabled(true);
                 etDOB.setEnabled(true);
                 etBloodGroup.setEnabled(true);
-                fabSave.setEnabled(true);
+                // fabSave.setEnabled(true);
             }
         }); //end of fabEdit
         //Save User Profile into Firebase - fabSave
         fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fabEdit.setVisibility(View.VISIBLE);
+                fabSave.setVisibility(View.INVISIBLE);
                 String name = etName.getText().toString();
                 String email = etEmail.getText().toString();
                 String bloodgroup = etBloodGroup.getText().toString();
