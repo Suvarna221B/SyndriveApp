@@ -1,13 +1,12 @@
 package universe.sk.syndriveapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,13 +15,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
+
+    ImageView imageViewNavPic;
+    TextView tvNavName, tvNavEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +48,37 @@ public class NavigationActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("SYNDRIVE");
+        actionBar.setIcon(R.mipmap.icon1);
+        actionBar.setTitle(" SYNDRIVE");
+        actionBar.setDisplayUseLogoEnabled(true);
+
+        imageViewNavPic = findViewById(R.id.imageViewNavPic);
+        tvNavName = findViewById(R.id.tvNavName);
+        tvNavEmail = findViewById(R.id.tvNavEmail);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
+
+        storageReference = firebaseStorage.getReference();
+        //setNavProfilePic();
+
+        /* final DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Userinfo userinfo;
+                userinfo = dataSnapshot.getValue(Userinfo.class);
+
+                tvNavName.setText(userinfo.getUsername());
+                tvNavEmail.setText(userinfo.getUemail());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(NavigationActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        }); */
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -51,6 +96,17 @@ public class NavigationActivity extends AppCompatActivity
         manager.beginTransaction().replace(R.id.flMain, contactUsFragment).commit();
 
         navigationView.setCheckedItem(R.id.nav_conatctus);
+    } //end of onCreate
+
+    private void setNavProfilePic() {
+        storageReference = firebaseStorage.getReference();
+        storageReference.child(firebaseAuth.getUid()).child("Images/Profile Pic").getDownloadUrl()
+                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).fit().centerCrop().into(imageViewNavPic);
+                    }
+                });
     }
 
     @Override
@@ -121,5 +177,6 @@ public class NavigationActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-}
+    } //end of onNavigationItemSelected
+
+} //end of Navigation Activity

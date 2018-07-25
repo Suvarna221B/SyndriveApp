@@ -66,7 +66,6 @@ public class EditProfileActivity extends AppCompatActivity {
         etDOB.setEnabled(false);
         etBloodGroup.setEnabled(false);
         etEmail.setEnabled(false);
-        // fabSave.setEnabled(false);
         fabSave.setVisibility(View.INVISIBLE);
 
         // mStorage = FirebaseStorage.getInstance().getReference();
@@ -90,7 +89,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 etBloodGroup.setText(userinfo.getBloodgroup());
                 etDOB.setText(userinfo.getUdate());
                 etEmail.setText(userinfo.getUemail());
-                // imageView_profile_pic.setImageURI(userinfo.getImageUri());
             }
 
             @Override
@@ -108,7 +106,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 etName.setEnabled(true);
                 etDOB.setEnabled(true);
                 etBloodGroup.setEnabled(true);
-                // fabSave.setEnabled(true);
             }
         }); //end of fabEdit
         //Save User Profile into Firebase - fabSave
