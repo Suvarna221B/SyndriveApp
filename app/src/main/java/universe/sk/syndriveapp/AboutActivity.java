@@ -16,8 +16,11 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("About");
+        actionBar.setTitle(" About");
+        actionBar.setIcon(R.drawable.about);
+        actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         tvAbout = findViewById(R.id.tvAbout);
         tvAbout2 = findViewById(R.id.tvAbout2);
