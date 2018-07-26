@@ -24,4 +24,12 @@
         android:key="notifications_new_message_vibrate"
         android:title="@string/pref_title_vibrate" />
 
+    <ListPreference
+        android:dialogTitle="@string/title_dialog_duration"
+        android:defaultValue="15"
+        android:entries="@array/settings_list_preference_titles"
+        android:entryValues="@array/settings_list_preference_values"
+        android:key="alert_time"
+        android:title="@string/title_alert" />
+
 </PreferenceScreen>
