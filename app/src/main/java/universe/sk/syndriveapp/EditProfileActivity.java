@@ -101,6 +101,12 @@ public class EditProfileActivity extends AppCompatActivity {
                 etBloodGroup.setText(userinfo.getBloodgroup());
                 etDOB.setText(userinfo.getUdate());
                 etEmail.setText(userinfo.getUemail());
+                etName1.setText(userinfo.getCname1());
+                etName2.setText(userinfo.getCname2());
+                etName3.setText(userinfo.getCname3());
+                etNum1.setText(userinfo.getCnum1());
+                etNum2.setText(userinfo.getCnum2());
+                etNum3.setText(userinfo.getCnum3());
             }
 
             @Override
@@ -136,8 +142,13 @@ public class EditProfileActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String bloodgroup = etBloodGroup.getText().toString();
                 String date = etDOB.getText().toString();
-
-                Userinfo userinfo = new Userinfo(name, email, date, bloodgroup);
+                String ename1= etName1.getText().toString();
+                String ename2 = etName2.getText().toString();
+                String ename3 = etName3.getText().toString();
+                String enum1 = etNum1.getText().toString();
+                String enum2 = etNum2.getText().toString();
+                String enum3 = etNum3.getText().toString();
+                Userinfo userinfo = new Userinfo(name, email, date, bloodgroup,ename1,enum1,ename2,enum2,ename3,enum3);
                 databaseReference.setValue(userinfo);
 
                 etName.setEnabled(false);
