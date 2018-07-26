@@ -29,7 +29,7 @@ import java.io.IOException;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
-    private EditText etName, etEmail, etBloodGroup, etDOB;
+    private EditText etName, etEmail, etBloodGroup, etDOB, etName1, etNum1, etName2, etNum2, etName3, etNum3;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
@@ -57,6 +57,12 @@ public class EditProfileActivity extends AppCompatActivity {
         etDOB = findViewById(R.id.etDOB);
         etBloodGroup = findViewById(R.id.etBloodGroup);
         etEmail = findViewById(R.id.etEmail);
+        etName1 = findViewById(R.id.etName1);
+        etNum1 = findViewById(R.id.etNum1);
+        etName2 = findViewById(R.id.etName2);
+        etNum2 = findViewById(R.id.etNum2);
+        etName3 = findViewById(R.id.etName3);
+        etNum3 = findViewById(R.id.etNum3);
         fabEdit = findViewById(R.id.fabEdit);
         fabSave = findViewById(R.id.fabSave);
         fabGallery = findViewById(R.id.fabGallery);
@@ -66,6 +72,12 @@ public class EditProfileActivity extends AppCompatActivity {
         etDOB.setEnabled(false);
         etBloodGroup.setEnabled(false);
         etEmail.setEnabled(false);
+        etName1.setEnabled(false);
+        etNum1.setEnabled(false);
+        etName2.setEnabled(false);
+        etNum2.setEnabled(false);
+        etName3.setEnabled(false);
+        etNum3.setEnabled(false);
         fabSave.setVisibility(View.INVISIBLE);
 
         // mStorage = FirebaseStorage.getInstance().getReference();
@@ -106,6 +118,12 @@ public class EditProfileActivity extends AppCompatActivity {
                 etName.setEnabled(true);
                 etDOB.setEnabled(true);
                 etBloodGroup.setEnabled(true);
+                etName1.setEnabled(true);
+                etNum1.setEnabled(true);
+                etName2.setEnabled(true);
+                etNum2.setEnabled(true);
+                etName3.setEnabled(true);
+                etNum3.setEnabled(true);
             }
         }); //end of fabEdit
         //Save User Profile into Firebase - fabSave
@@ -125,6 +143,12 @@ public class EditProfileActivity extends AppCompatActivity {
                 etName.setEnabled(false);
                 etDOB.setEnabled(false);
                 etBloodGroup.setEnabled(false);
+                etName1.setEnabled(false);
+                etNum1.setEnabled(false);
+                etName2.setEnabled(false);
+                etNum2.setEnabled(false);
+                etName3.setEnabled(false);
+                etNum3.setEnabled(false);
 
                 Toast.makeText(EditProfileActivity.this, "Successfully saved!", Toast.LENGTH_SHORT).show();
             }

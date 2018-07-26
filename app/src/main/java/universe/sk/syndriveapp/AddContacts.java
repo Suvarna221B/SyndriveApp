@@ -45,7 +45,6 @@ public class AddContacts extends AppCompatActivity {
 
         name1 = findViewById(R.id.name1);
         num1 = findViewById(R.id.num1);
-
         name2 = findViewById(R.id.name2);
         num2 = findViewById(R.id.num2);
         name3 = findViewById(R.id.name3);

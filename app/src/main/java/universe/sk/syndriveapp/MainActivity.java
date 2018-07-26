@@ -51,29 +51,19 @@ public class MainActivity extends AppCompatActivity {
         tvRegister =findViewById(R.id.tvRegister);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
 
-        if ((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED)||
-                (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED)||
-                (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BODY_SENSORS)
+        if ((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BODY_SENSORS)
                 !=PackageManager.PERMISSION_GRANTED)||
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_PHONE_STATE)
                 !=PackageManager.PERMISSION_GRANTED)||
-                (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CONTACTS)
-                !=PackageManager.PERMISSION_GRANTED)||
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 !=PackageManager.PERMISSION_GRANTED)||
-                (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
-                        !=PackageManager.PERMISSION_GRANTED)||
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                        !=PackageManager.PERMISSION_GRANTED)
-                ) {
-                ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.BODY_SENSORS,
-                                Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CONTACTS,
-                        Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA},
-                        REQUEST_PERMISSIONS);
+                        !=PackageManager.PERMISSION_GRANTED)) {
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[] {Manifest.permission.BODY_SENSORS,
+                                    Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION},
+                            REQUEST_PERMISSIONS);
         }
 
 
